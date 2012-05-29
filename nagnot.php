@@ -16,6 +16,9 @@ $XMPP['password'] = "****";
 $XMPP['domain']   = "****";
 $XMPP['resource'] = "NagNot";
 
+// Acknowledgement timeout in seconds
+$ACK_TIMEOUT = 60;
+
 // The different status states in which an IM will be sent. If user status is not one of these, an
 // email will be sent instead.
 $CONFIG['notify_status'] = array("chat", "available", "away", "xa", "dnd");
@@ -95,7 +98,12 @@ try
         output("Notifying user via IM....");
         $conn->message($INPUT['im'], 
                        $INPUT['subject']."\n".$INPUT['message']);
-        $im_sent = true;
+
+        // Wait for an acknowledgement (any message sent back)
+        $payload = $conn->processUntil('message', $ACK_TIMEOUT);
+
+        // non-zero payload array length means a message was received
+        $im_sent = count(payload);
     }
     $conn->disconnect();
 } 
