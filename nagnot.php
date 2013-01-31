@@ -103,7 +103,7 @@ try
         $payload = $conn->processUntil('message', $ACK_TIMEOUT);
 
         // non-zero payload array length means a message was received
-        $im_sent = count(payload);
+        $im_sent = count($payload);
     }
     $conn->disconnect();
 } 
