@@ -7,10 +7,7 @@ I was sick of getting an SMS all the time when an IM would do. So this just send
 otherwise triggers an email to your SMS address. Basically, I don't want to get a SMS if I've already
 received an IM. But if I'm not logged into IM, then I still want to get a SMS.
 
-Rich Adams <rich@richadams.me> (http://richadams.me)
-Licensed under the GPL.
-
-Uses XMPPHP http://code.google.com/p/xmpphp/
+Uses [XMPPHP](http://code.google.com/p/xmpphp/)
 
 ----------------------------------------------------------------------------------------------------
 
